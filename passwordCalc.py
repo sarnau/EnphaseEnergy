@@ -1,4 +1,5 @@
 import hashlib
+import time
 
 serialNumber = b'122112123456'
 userName = b'installer'
@@ -21,7 +22,7 @@ def emupwGetPasswd(userName,realm):
 
 def emupwGetPublicPasswd(serialNumber, userName, realm, expiryTimestamp=0):
     if expiryTimestamp==0:
-        expiryTimestamp = 1234;
+        expiryTimestamp = int(time.time());
     return hashlib.md5(userName + b'@' + realm + b'#' + serialNumber + b'%d' % expiryTimestamp).hexdigest()
 
 def emupwGetMobilePasswd(serialNumber,userName,realm=None):
