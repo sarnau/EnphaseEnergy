@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from zeroconf import ServiceBrowser, Zeroconf
 
 class EnphaseEnvoyListener:
